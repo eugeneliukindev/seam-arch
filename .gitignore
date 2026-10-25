@@ -1,0 +1,12 @@
+.idea/
+
+# tool caches
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# benchmark environment and runs
+bench/.venv/
+bench/.cache/
+bench/results/

@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Payments.charge(order, cardToken, client)` in src/shop/Payments.java: it charges the order through `StripeClient.createCharge` in src/shop/StripeClient.java and returns the charge id. We may add PayPal at some point.",
+  "allowed": ["src/shop/*", "test/*"],
+  "catches": ["design/speculative-abstraction"],
+  "expect_bad": ["design"]
+}

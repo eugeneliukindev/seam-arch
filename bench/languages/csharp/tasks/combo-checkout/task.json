@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Checkout.Pay(cart, code, country, cardToken)` in Shop/Checkout.cs. It applies the coupon `code` from the coupon book, which must refuse an expired coupon with `CouponExpiredException`; adds VAT for the customer's country (20% for \"GB\", 19% for \"DE\", 21% for \"NL\", none elsewhere; more countries will follow); charges the result through `StripeClient.CreateCharge` in Shop/StripeClient.cs; and returns the charge id. We may add PayPal at some point. `App.BuildCheckout(client)` in Shop/App.cs must return a ready checkout that charges through `client`.",
+  "allowed": ["Shop/*", "tests/*"],
+  "catches": ["abstraction/needed-clock", "abstraction/not-needed-data", "abstraction/not-needed-one-implementation"],
+  "expect_bad": ["design"]
+}

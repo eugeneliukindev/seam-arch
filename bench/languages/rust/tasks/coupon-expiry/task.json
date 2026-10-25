@@ -1,0 +1,6 @@
+{
+  "prompt": "Expired coupons must be refused. Add `CouponBook::apply(&self, code: &str, total_cents: u64) -> Result<u64, CouponError>` in src/coupons.rs: it returns the total lowered by the coupon's percent, or `Err(CouponError::Expired)` once the coupon's `expires` moment has passed. `build_book()` in src/app.rs must keep returning a ready book.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["abstraction/needed-clock"],
+  "expect_bad": ["design"]
+}

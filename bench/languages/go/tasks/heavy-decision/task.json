@@ -1,0 +1,12 @@
+{
+  "prompt": "Add `(*ResumeService).Summarize(path string) (Summary, error)` in service.go: it returns a `Summary` with `Grade`, the resume's grade, and `Words`, its length in words. Read the file with `ReadTextFile` from files.go and work out the grade with `GradeOf` from grading.go. `BuildService()` in app.go must return a ready service.",
+  "allowed": [
+    "*.go"
+  ],
+  "catches": [
+    "design/decision-not-mechanism"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

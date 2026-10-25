@@ -1,0 +1,10 @@
+{
+  "name": "weather",
+  "version": "0.3.0",
+  "description": "Advice from the weather forecast.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts"
+  }
+}

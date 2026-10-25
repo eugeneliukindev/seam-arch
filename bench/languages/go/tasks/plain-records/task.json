@@ -1,0 +1,6 @@
+{
+  "prompt": "The app should tell people whether to take an umbrella. Add `ShouldTakeUmbrella(ctx context.Context, city string, api *ForecastAPI) (bool, error)` in advice.go: yes when the chance of rain today is above 50%, using the forecast from `ForecastAPI` in forecast_api.go.",
+  "allowed": ["*.go"],
+  "catches": ["clean-architecture/plain-records"],
+  "expect_bad": ["design"]
+}

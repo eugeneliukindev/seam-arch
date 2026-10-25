@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Checkout.pay(cart, code, country, cardToken)` in src/checkout.ts. It applies the coupon `code` from the coupon book, which must refuse an expired coupon with `CouponExpiredError`; adds VAT for the customer's country (20% for \"GB\", 19% for \"DE\", 21% for \"NL\", none elsewhere; more countries will follow); charges the result through `StripeClient.createCharge` in src/stripe-client.ts; and resolves to the charge id. We may add PayPal at some point. `buildCheckout(client)` in src/app.ts must return a ready checkout that charges through `client`.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["abstraction/needed-clock", "abstraction/not-needed-data", "abstraction/not-needed-one-implementation"],
+  "expect_bad": ["design"]
+}

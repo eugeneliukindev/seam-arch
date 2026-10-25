@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `charge(order, { cardToken, client })` in src/payments.ts: it charges the order through `StripeClient.createCharge` in src/stripe-client.ts and resolves to the charge id. We may add PayPal at some point.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["design/speculative-abstraction"],
+  "expect_bad": ["design"]
+}

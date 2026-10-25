@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts asked for a way to chase late payers. Add an `--overdue` option to the command line in src/cli.ts: it lists only the unpaid invoices past their due date, oldest first, each with how many days overdue it is.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["clean-architecture/humble-object"],
+  "expect_bad": ["design"]
+}

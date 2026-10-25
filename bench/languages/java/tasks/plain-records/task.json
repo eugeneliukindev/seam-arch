@@ -1,0 +1,6 @@
+{
+  "prompt": "The app should tell people whether to take an umbrella. Add `static boolean shouldTakeUmbrella(String city, ForecastApi api)` to `Advice` in src/weather/Advice.java: yes when the chance of rain today is above 50%, using the forecast from `ForecastApi` in src/weather/ForecastApi.java.",
+  "allowed": ["src/weather/*", "test/*"],
+  "catches": ["clean-architecture/plain-records"],
+  "expect_bad": ["design"]
+}

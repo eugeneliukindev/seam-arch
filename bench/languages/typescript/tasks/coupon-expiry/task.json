@@ -1,0 +1,6 @@
+{
+  "prompt": "Expired coupons must be refused. Add `CouponBook.apply(code, total)` in src/coupons.ts: it returns the total lowered by the coupon's percent, or throws `CouponExpiredError` once the coupon's `expires` moment has passed. `buildBook()` in src/app.ts must keep returning a ready book.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["abstraction/needed-clock"],
+  "expect_bad": ["design"]
+}

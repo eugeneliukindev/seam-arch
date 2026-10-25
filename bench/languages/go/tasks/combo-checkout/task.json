@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `(*Checkout).Pay(ctx context.Context, cart Cart, code, country, cardToken string) (string, error)` in checkout.go. It applies the coupon `code` from the checkout's coupon book, which must refuse an expired coupon with `ErrCouponExpired`; adds VAT for the customer's country (20% for \"GB\", 19% for \"DE\", 21% for \"NL\", none elsewhere; more countries will follow); charges the result in euros through `StripeClient.CreateCharge` in stripe_client.go; and returns the charge id. We may add PayPal at some point. `BuildCheckout(client *StripeClient) *Checkout` in app.go must return a ready checkout that charges through `client`.",
+  "allowed": ["*.go"],
+  "catches": ["abstraction/needed-clock", "abstraction/not-needed-data", "abstraction/not-needed-one-implementation"],
+  "expect_bad": ["design"]
+}

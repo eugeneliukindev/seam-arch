@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Checkout.pay(cart, code, country, cardToken)` in src/shop/Checkout.java. It applies the coupon `code` from the coupon book, which must refuse an expired coupon with `CouponExpiredException`; adds VAT for the customer's country (20% for \"GB\", 19% for \"DE\", 21% for \"NL\", none elsewhere; more countries will follow); charges the result in euros through `StripeClient.createCharge` in src/shop/StripeClient.java; and returns the charge id. We may add PayPal at some point. `App.buildCheckout(client)` in src/shop/App.java must return a ready checkout that charges through `client`.",
+  "allowed": ["src/shop/*", "test/*"],
+  "catches": ["abstraction/needed-clock", "abstraction/not-needed-data", "abstraction/not-needed-one-implementation"],
+  "expect_bad": ["design"]
+}

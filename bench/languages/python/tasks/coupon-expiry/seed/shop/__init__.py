@@ -1,0 +1,1 @@
+"""Coupons at the till."""

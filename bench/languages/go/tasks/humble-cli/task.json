@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts asked for a way to chase late payers. Add an `-overdue` flag to the command in cli.go: it lists only the unpaid invoices past their due date, oldest first, each with how many days overdue it is.",
+  "allowed": ["*.go"],
+  "catches": ["clean-architecture/humble-object"],
+  "expect_bad": ["design"]
+}

@@ -1,0 +1,13 @@
+{
+  "prompt": "Add `summarize(Path path)` to a new `ResumeService` in src/resumes/ResumeService.java: it returns a `Summary` record with `grade`, the resume's grade, and `words`, its length in words. Read the file with `ResumeFiles.readTextFile` and work out the grade with `Grading.gradeOf`. `App.buildService()` in src/resumes/App.java must return a ready service.",
+  "allowed": [
+    "src/resumes/*",
+    "test/*"
+  ],
+  "catches": [
+    "design/decision-not-mechanism"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

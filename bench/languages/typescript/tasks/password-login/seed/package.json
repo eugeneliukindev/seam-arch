@@ -1,0 +1,10 @@
+{
+  "name": "accounts",
+  "version": "0.1.0",
+  "description": "User accounts.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts"
+  }
+}

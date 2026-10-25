@@ -1,0 +1,17 @@
+{
+  "prompt": [
+    "Users can now choose to get alerts by SMS instead of email; store the choice in a new `User.Channel` field, \"email\" or \"sms\". Texts go through `SmsGateway.Send` in gateways.go, and `BuildService` in app.go already receives the gateway. Wire it up.",
+    "Users can also choose `push`: notifications to the app go through `PushGateway.Send(deviceToken, text)` in gateways.go, and `BuildService` already receives that gateway too. Wire it up."
+  ],
+  "allowed": [
+    "*.go"
+  ],
+  "catches": [
+    "design/generic-name",
+    "data/branch-on-name",
+    "accumulation"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

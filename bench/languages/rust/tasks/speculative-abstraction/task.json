@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `charge(order: &Order, card_token: &str, client: &dyn StripeClient) -> String` in src/payments.rs: it charges the order through `StripeClient::create_charge` in src/stripe_client.rs and returns the charge id. We may add PayPal at some point.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["design/speculative-abstraction"],
+  "expect_bad": ["design"]
+}

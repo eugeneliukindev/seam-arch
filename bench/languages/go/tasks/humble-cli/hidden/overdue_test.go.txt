@@ -1,0 +1,131 @@
+package invoices
+
+import (
+	"io"
+	"os"
+	"reflect"
+	"slices"
+	"testing"
+	"time"
+)
+
+// zzHiddenCandidates are the package's top-level functions outside cli.go, filled in by test_hidden.py.
+var zzHiddenCandidates = map[string]any{
+	// CANDIDATES
+}
+
+type zzHiddenStore []Invoice
+
+func (s zzHiddenStore) All() []Invoice { return slices.Clone(s) }
+
+func zzHiddenDay(month time.Month, d int) time.Time {
+	return time.Date(2026, month, d, 0, 0, 0, 0, time.UTC)
+}
+
+var zzHiddenInvoices = []Invoice{
+	{Number: "N-3", Due: zzHiddenDay(9, 21), Paid: false, Amount: 300},
+	{Number: "N-1", Due: zzHiddenDay(7, 3), Paid: false, Amount: 120},
+	{Number: "N-2", Due: zzHiddenDay(8, 25), Paid: true, Amount: 80},
+	{Number: "N-4", Due: zzHiddenDay(10, 1), Paid: false, Amount: 60},
+	{Number: "N-5", Due: zzHiddenDay(11, 15), Paid: false, Amount: 90},
+	{Number: "N-6", Due: zzHiddenDay(9, 2), Paid: false, Amount: 45.25},
+}
+
+// zzHiddenArguments fills each parameter with the invoices, their store or today, in whatever order it asks.
+func zzHiddenArguments(function reflect.Type) ([]reflect.Value, bool) {
+	store := reflect.ValueOf(zzHiddenStore(slices.Clone(zzHiddenInvoices)))
+	today := reflect.ValueOf(zzHiddenDay(10, 1))
+	var arguments []reflect.Value
+	invoices := false
+	for i := range function.NumIn() {
+		switch in := function.In(i); {
+		case in == reflect.TypeOf([]Invoice(nil)):
+			arguments, invoices = append(arguments, reflect.ValueOf(slices.Clone(zzHiddenInvoices))), true
+		case in == today.Type():
+			arguments = append(arguments, today)
+		case in.Kind() == reflect.Interface && store.Type().Implements(in):
+			arguments, invoices = append(arguments, store), true
+		default:
+			return nil, false
+		}
+	}
+	return arguments, invoices && !function.IsVariadic()
+}
+
+// zzHiddenNumbers returns the numbers of the invoices in a result: a list of invoices, or of records holding one.
+func zzHiddenNumbers(value reflect.Value, depth int) []string {
+	for value.IsValid() && (value.Kind() == reflect.Pointer || value.Kind() == reflect.Interface) {
+		value = value.Elem()
+	}
+	switch {
+	case !value.IsValid() || depth > 1:
+		return nil
+	case value.Type() == reflect.TypeOf(Invoice{}):
+		return []string{value.FieldByName("Number").String()}
+	case depth == 0 && (value.Kind() == reflect.Slice || value.Kind() == reflect.Array):
+		var numbers []string
+		for i := range value.Len() {
+			numbers = append(numbers, zzHiddenNumbers(value.Index(i), 1)...)
+		}
+		return numbers
+	case depth == 1 && value.Kind() == reflect.Struct:
+		var numbers []string
+		for i := range value.NumField() {
+			field := value.Field(i)
+			for field.Kind() == reflect.Pointer && !field.IsNil() {
+				field = field.Elem()
+			}
+			if field.Type() == reflect.TypeOf(Invoice{}) {
+				numbers = append(numbers, field.FieldByName("Number").String())
+			}
+		}
+		return numbers
+	}
+	return nil
+}
+
+// zzHiddenCall calls function and returns the invoice numbers it returned and whether it printed anything.
+func zzHiddenCall(function reflect.Value, arguments []reflect.Value) (numbers []string, printed bool) {
+	stdout := os.Stdout
+	reader, writer, err := os.Pipe()
+	if err != nil {
+		return nil, true
+	}
+	os.Stdout = writer
+	output := make(chan []byte)
+	go func() {
+		all, _ := io.ReadAll(reader)
+		output <- all
+	}()
+	defer func() {
+		os.Stdout = stdout
+		writer.Close()
+		printed = len(<-output) > 0 || printed
+		if recover() != nil {
+			numbers = nil
+		}
+	}()
+	results := function.Call(arguments)
+	if len(results) > 0 {
+		numbers = zzHiddenNumbers(results[0], 0)
+	}
+	return numbers, false
+}
+
+func TestHiddenAFunctionReturnsTheOverdueInvoices(t *testing.T) {
+	want := []string{"N-1", "N-3", "N-6"}
+	for name, candidate := range zzHiddenCandidates {
+		function := reflect.ValueOf(candidate)
+		arguments, ok := zzHiddenArguments(function.Type())
+		if !ok {
+			continue
+		}
+		numbers, printed := zzHiddenCall(function, arguments)
+		slices.Sort(numbers)
+		if slices.Equal(numbers, want) && !printed {
+			t.Logf("%s returns the overdue invoices", name)
+			return
+		}
+	}
+	t.Fatal("no function outside cli.go returns the overdue invoices")
+}

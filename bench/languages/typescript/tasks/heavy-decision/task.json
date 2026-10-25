@@ -1,0 +1,13 @@
+{
+  "prompt": "Add `ResumeService.summarize(path)` in src/service.ts: it returns a `Summary` with `grade`, the resume's grade, and `words`, its length in words. Read the file with `readTextFile` from src/files.ts and work out the grade with `gradeOf` from src/grading.ts. `buildService()` in src/app.ts must return a ready service.",
+  "allowed": [
+    "src/*",
+    "tests/*"
+  ],
+  "catches": [
+    "design/decision-not-mechanism"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

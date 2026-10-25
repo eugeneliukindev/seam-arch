@@ -1,0 +1,10 @@
+{
+  "name": "alerts",
+  "version": "0.9.0",
+  "description": "Alerts for our users.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts"
+  }
+}

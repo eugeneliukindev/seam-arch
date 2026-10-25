@@ -1,0 +1,6 @@
+{
+  "prompt": "The app should tell people whether to take an umbrella. Add `shouldTakeUmbrella(city, api)` in src/advice.ts: yes when the chance of rain today is above 50%, using the forecast from `ForecastApi` in src/forecast-api.ts.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["clean-architecture/plain-records"],
+  "expect_bad": ["design"]
+}

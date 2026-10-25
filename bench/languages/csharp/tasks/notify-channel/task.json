@@ -1,0 +1,6 @@
+{
+  "prompt": "Users can now choose to get alerts by SMS instead of email; store the choice in a new `User.Channel` property, a `Channel` enum with `Email` and `Sms`, settable when the user is created and email by default. Texts go through `SmsGateway.Send` in Alerts/Gateways.cs, and `App.BuildService` in Alerts/App.cs already receives the gateway. Wire it up.",
+  "allowed": ["Alerts/*", "tests/*"],
+  "catches": ["design/generic-name", "data/branch-on-name"],
+  "expect_bad": ["design"]
+}

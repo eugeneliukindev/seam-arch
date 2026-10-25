@@ -1,0 +1,13 @@
+{
+  "prompt": "Add `ResumeService::summarize(&self, path: &Path) -> io::Result<Summary>` in src/service.rs: it returns a `Summary` with public fields `grade`, the resume's grade, and `words`, its length in words. Read the file with `read_text_file` from src/files.rs and work out the grade with `grade_of` from src/grading.rs. `build_service()` in src/app.rs must return a ready service.",
+  "allowed": [
+    "src/*",
+    "tests/*"
+  ],
+  "catches": [
+    "design/decision-not-mechanism"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

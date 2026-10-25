@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts need passwords. Add `register(&mut self, email: &str, password: &str)` and `log_in(&self, email: &str, password: &str) -> bool` to `AccountService` in src/service.rs. Hash with `kdf::derive` from src/kdf.rs and a salt from `kdf::random_salt`; never store the password itself. `build_service` in src/app.rs must keep returning a ready service.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["design/mechanism-in-policy"],
+  "expect_bad": ["design"]
+}

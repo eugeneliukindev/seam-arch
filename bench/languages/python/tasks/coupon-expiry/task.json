@@ -1,0 +1,6 @@
+{
+  "prompt": "Expired coupons must be refused. Add `CouponBook.apply(code, total)` in shop/coupons.py: it returns the total lowered by the coupon's percent, or raises `CouponExpiredError` once the coupon's `expires` moment has passed. `build_book()` in shop/app.py must keep returning a ready book.",
+  "allowed": ["shop/*", "tests/*"],
+  "catches": ["abstraction/needed-clock"],
+  "expect_bad": ["design"]
+}

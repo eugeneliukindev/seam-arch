@@ -1,0 +1,9 @@
+{
+  "prompt": [
+    "Users can now choose to get alerts by SMS instead of email; store the choice in a new `channel` field on `User`, \"email\" or \"sms\". Texts go through `SmsGateway.send` in src/gateways.ts, and `buildService` in src/app.ts already receives the gateway. Wire it up.",
+    "Users can also choose `push`: notifications to the app go through `PushGateway.send(deviceToken, text)` in src/gateways.ts, and `buildService` already receives that gateway too. Wire it up."
+  ],
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["design/generic-name", "data/branch-on-name", "accumulation"],
+  "expect_bad": ["design"]
+}

@@ -1,0 +1,6 @@
+{
+  "prompt": "The app should tell people whether to take an umbrella. Add `Advice.ShouldTakeUmbrella(city, api)` in Weather/Advice.cs: yes when the chance of rain today is above 50%, using the forecast from `ForecastApi` in Weather/ForecastApi.cs.",
+  "allowed": ["Weather/*", "tests/*"],
+  "catches": ["clean-architecture/plain-records"],
+  "expect_bad": ["design"]
+}

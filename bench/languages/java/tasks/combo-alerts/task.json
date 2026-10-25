@@ -1,0 +1,9 @@
+{
+  "prompt": [
+    "Users can now choose to get alerts by SMS instead of email; store the choice in a new `channel` component of the `User` record, of a new enum `alerts.Channel` with `EMAIL` and `SMS`, added as its last component. Texts go through `SmsGateway.send` in src/alerts/SmsGateway.java, and `App.buildService` in src/alerts/App.java already receives the gateway. Wire it up. A user who chose texts but has no phone number should still get the alert by email.",
+    "Users can also choose push: add `PUSH` to `Channel`. Notifications to the app go through `PushGateway.send(deviceToken, text)` in src/alerts/PushGateway.java, and `App.buildService` already receives that gateway too. Wire it up."
+  ],
+  "allowed": ["src/alerts/*", "test/*"],
+  "catches": ["solid/ocp", "solid/dip", "solid/lsp", "solid/isp", "solid/srp"],
+  "expect_bad": ["design"]
+}

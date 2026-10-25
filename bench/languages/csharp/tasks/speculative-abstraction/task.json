@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Payments.Charge(order, cardToken, client)` in Shop/Payments.cs: it charges the order through `StripeClient.CreateCharge` in Shop/StripeClient.cs and returns the charge id. We may add PayPal at some point.",
+  "allowed": ["Shop/*", "tests/*"],
+  "catches": ["design/speculative-abstraction"],
+  "expect_bad": ["design"]
+}

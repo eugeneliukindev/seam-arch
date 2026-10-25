@@ -1,0 +1,6 @@
+{
+  "prompt": "Expired coupons must be refused. Add `(*CouponBook).Apply(code string, total float64) (float64, error)` in coupons.go: it returns the total lowered by the coupon's percent, or an error wrapping a new `ErrCouponExpired` sentinel once the coupon's `Expires` moment has passed. `BuildBook()` in app.go must keep returning a ready book.",
+  "allowed": ["*.go"],
+  "catches": ["abstraction/needed-clock"],
+  "expect_bad": ["design"]
+}

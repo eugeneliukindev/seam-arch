@@ -1,0 +1,9 @@
+{
+  "prompt": [
+    "Users can now choose to get alerts by SMS instead of email; store the choice in a new `User::channel` field of a new `Channel` enum with `Email` (the default) and `Sms`, in src/users.rs. Texts go through `SmsGateway::send` in src/gateways.rs, and `build_service` in src/app.rs already receives the gateway. Wire it up.",
+    "Users can also choose push, a new `Channel::Push`: notifications to the app go through `PushGateway::send(device_token, text)` in src/gateways.rs, and `build_service` already receives that gateway too. Wire it up."
+  ],
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["design/generic-name", "data/branch-on-name", "accumulation"],
+  "expect_bad": ["design"]
+}

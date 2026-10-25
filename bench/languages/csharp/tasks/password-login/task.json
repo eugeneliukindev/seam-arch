@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts need passwords. Add `Register(email, password)` and `LogIn(email, password)`, returning a bool, to `AccountService` in Accounts/AccountService.cs. Hash with `Rfc2898DeriveBytes.Pbkdf2` and a random salt from `RandomNumberGenerator`; never store the password itself. `App.BuildService()` in Accounts/App.cs must keep returning a ready service.",
+  "allowed": ["Accounts/*", "tests/*"],
+  "catches": ["design/mechanism-in-policy"],
+  "expect_bad": ["design"]
+}

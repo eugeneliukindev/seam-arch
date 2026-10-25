@@ -1,0 +1,6 @@
+{
+  "prompt": "Expired coupons must be refused. Add `BigDecimal apply(String code, BigDecimal total)` to `CouponBook` in src/shop/CouponBook.java: it returns the total lowered by the coupon's percent, or throws a new `CouponExpiredException` once the coupon's `expires` moment has passed. `App.buildBook()` in src/shop/App.java must keep returning a ready book.",
+  "allowed": ["src/shop/*", "test/*"],
+  "catches": ["abstraction/needed-clock"],
+  "expect_bad": ["design"]
+}

@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Charge(ctx context.Context, order Order, cardToken string, client *StripeClient) (string, error)` in payments.go: it charges the order through `StripeClient.CreateCharge` in stripe_client.go and returns the charge id. We may add PayPal at some point.",
+  "allowed": ["*.go"],
+  "catches": ["design/speculative-abstraction"],
+  "expect_bad": ["design"]
+}

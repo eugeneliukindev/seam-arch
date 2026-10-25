@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts need passwords. Add `Register(email, password string) error` and `LogIn(email, password string) (bool, error)` to `AccountService` in service.go. Hash with `crypto/pbkdf2` (SHA-256) and a random salt from `crypto/rand`; never store the password itself. `BuildService` in app.go must keep returning a ready service.",
+  "allowed": ["*.go"],
+  "catches": ["design/mechanism-in-policy"],
+  "expect_bad": ["design"]
+}

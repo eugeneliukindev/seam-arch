@@ -1,0 +1,13 @@
+{
+  "prompt": "Add `ResumeService.Summarize(path)` in Resumes/ResumeService.cs: it returns a `Summary` with `Grade`, the resume's grade, and `Words`, its length in words. Read the file with `ResumeFiles.ReadTextFile` from Resumes/ResumeFiles.cs and work out the grade with `Grading.GradeOf` from Resumes/Grading.cs. `App.BuildService()` in Resumes/App.cs must return a ready service.",
+  "allowed": [
+    "Resumes/*",
+    "tests/*"
+  ],
+  "catches": [
+    "design/decision-not-mechanism"
+  ],
+  "expect_bad": [
+    "design"
+  ]
+}

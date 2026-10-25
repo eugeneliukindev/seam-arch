@@ -1,0 +1,6 @@
+{
+  "prompt": "Add `Checkout::pay(&self, cart: &Cart, code: &str, country: &str, card_token: &str)` in src/checkout.rs. It applies the coupon `code` from the checkout's public `coupons: CouponBook` (src/coupons.rs), which must refuse a coupon once its `expires` moment has passed with an error saying it expired; adds VAT for the customer's country (20% for \"GB\", 19% for \"DE\", 21% for \"NL\", none elsewhere; more countries will follow); charges the result in EUR through `StripeClient::create_charge` in src/stripe_client.rs; and returns `Ok` with the charge id. We may add PayPal at some point. `build_checkout(client: Box<dyn StripeClient>) -> Checkout` in src/app.rs must return a ready checkout that charges through `client`.",
+  "allowed": ["src/*", "tests/*"],
+  "catches": ["abstraction/needed-clock", "abstraction/not-needed-data", "abstraction/not-needed-one-implementation"],
+  "expect_bad": ["design"]
+}

@@ -1,0 +1,6 @@
+{
+  "prompt": "Accounts need passwords. Add `register(String email, String password)` and `boolean logIn(String email, String password)` to `AccountService` in src/accounts/AccountService.java. Hash with PBKDF2 (`SecretKeyFactory` \"PBKDF2WithHmacSHA256\" from javax.crypto) and a random salt from `SecureRandom`; never store the password itself. `App.buildService()` in src/accounts/App.java must keep returning a ready service.",
+  "allowed": ["src/accounts/*", "test/*"],
+  "catches": ["design/mechanism-in-policy"],
+  "expect_bad": ["design"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "shop",
+  "version": "1.2.0",
+  "description": "The shop.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts"
+  }
+}
